@@ -1,0 +1,28 @@
+.table thead th {
+    cursor: pointer;
+}
+
+.custom-select {
+    min-width: 200px;
+}
+
+#interface {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 375px;
+    z-index: 100;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0 0 0 25px;
+}
+@media screen and (max-width: 375px) {
+    #interface {
+        width: 320px;
+        font-size: small;
+    }
+}
+
+#title {
+    cursor: pointer;
+    height: 46px;
+}

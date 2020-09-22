@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css">
+        <link rel="stylesheet" type="text/css" href="css/custom.css">
+        <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+        <script type="text/javascript" src="js/custom-google-maps.js"></script>
+        <script type="text/javascript" src="js/custom-weather.js"></script>
+    </head>
+    <body>
+        <div id="wfContainer" class="d-flex vh-100">
+            <div id="googlemap" class="w-100">
+                
+            </div>
+            <div id="interface">
+                <input type="hidden" id="lat-input" value="">
+                <input type="hidden" id="lng-input" value="">
+                <input type="hidden" id="resolutions-input" value="">
+                <div id="title" class="">
+                    <h1 class="h2 text-center font-weight-bold mt-1 mb-0">
+                        <a class="" data-toggle="collapse" data-target="#locationinfo" aria-expanded="true" aria-controls="locationinfo">
+                                Weather Forecast
+                        </a>
+                    </h1>
+                </div>
+                <div id="locationinfo" class="collapse show">
+                    <div id="options" class="d-flex flex-column align-items-center p-3">
+                        <div class="d-flex flex-column align-items-center my-2">
+                            <label for="resolutions" class="text-center">Choose Resolution</label>
+                            <select id="resolutions" class="custom-select"></select>
+                        </div>
+                        <div class="d-flex flex-column align-items-center my-2">
+                            <label for="variables" class="text-center">Choose Variable</label>
+                            <select id="variables" class="custom-select"></select>
+                        </div>
+                        <button type="submit" class="btn btn-primary my-2" onclick="GetHourlyWeather()">Submit</button>
+                    </div>
+                    
+                    <table id="table" class="table m-0 d-none">
+                        <thead id="thead">
+    
+                        </thead>
+                        <tbody id="tbody">
+    
+                        </tbody>
+                        <tfoot id="tfoot">
+                            
+                        </tfoot>
+                    </table>
+
+                    <div id="buttons" class="d-none">
+                        <div id="pager"></div>
+                        <button type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#chartModal">
+                            See Chart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="chartModal" tabindex="-1" aria-labelledby="chartModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="chartModalLabel"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ_O8Y45YZiqUC6N3btEbPUrJzo-xdF4o&callback=initMap" type="text/javascript"></script>
+</html>
